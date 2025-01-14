@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga Nuestra App</title>
+    <script>
+        // Función para detectar el sistema operativo y redirigir
+        function redirectToAppStore() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Verifica si es iOS
+            if (/iPad|iPhone|iPod|Macintosh/.test(userAgent) && 'ontouchend' in document) {
+                window.location.href = "https://apple.co/3QNyhBv";
+            }
+            // Verifica si es Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://bit.ly/3QNyhBx";
+            }
+            // Si no es compatible, deja el mensaje tal cual
+        }
+
+        // Ejecuta la redirección al cargar la página
+        window.onload = redirectToAppStore;
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        #message {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .button {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .button.ios {
+            background-color: #9b9b9b;
+        }
+        .button.android {
+            background-color: #007aff;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Redirigiendo a la tienda correspondiente...</div>
+    <div class="buttons">
+        <a href="https://apps.apple.com/us/app/real-estate-colima/id6444501425" class="button ios">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Apple_gray_logo.png" alt="Apple Logo" class="icon">
+            App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=mx.shago.realestate" class="button android">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="Android Logo" class="icon">
+            Google Play
+        </a>
+    </div>
+</body>
+</html>
